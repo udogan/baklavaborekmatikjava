@@ -16,16 +16,16 @@ public class User extends CreatedUpdatedAt {
     private Long id;
 
     @NotBlank
-    @Column(nullable = false, length=100)
+    @Column(nullable = false, length = 100)
     private String name;
     
     @NotBlank
-    @Column(nullable = false, length=100)
+    @Column(nullable = false, length = 100)
     private String surname;
     
     @NotBlank
     @Email
-    @Column(nullable = false, length=100)
+    @Column(nullable = false, length = 100, unique = true)
     private String email;
     
     protected User() {

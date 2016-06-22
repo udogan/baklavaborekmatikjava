@@ -9,10 +9,10 @@ import javax.persistence.PreUpdate;
 
 @MappedSuperclass
 abstract class CreatedUpdatedAt {
-    @Column(name = "created", nullable = false)
+    @Column(name = "created", insertable = true, updatable = false)
     private Date created;
 
-    @Column(name = "updated", nullable = false)
+    @Column(name = "updated", insertable = true, updatable = true)
     private Date updated;
 
     @PrePersist
@@ -26,7 +26,7 @@ abstract class CreatedUpdatedAt {
     }
 
     public Date getCreated() {
-        return created;
+        return this.created;
     }
 
     public void setCreated(Date created) {
@@ -34,7 +34,7 @@ abstract class CreatedUpdatedAt {
     }
 
     public Date getUpdated() {
-        return updated;
+        return this.updated;
     }
 
     public void setUpdated(Date updated) {
